@@ -1159,7 +1159,13 @@
 #define PS_ON_PIN          -1
 #define KILL_PIN           -1
 
-#define HEATER_0_PIN       13 // (extruder)
+// HEATER_0_PIN changed to use the fan MOSFET instead, as I accedentaly let the 
+// magic smoke out of the heater FET when the crappy hot-end resistor blew.
+//
+// Nichrome wire FTW.
+//
+// - Lars
+#define HEATER_0_PIN       4 // (extruder)
 #define HEATER_1_PIN       -1
 #define HEATER_2_PIN       -1
 
@@ -1171,8 +1177,10 @@
  #define Z_ENABLE_PIN       26
  #define E0_ENABLE_PIN      14
 
+// changed here to asign fan to broken FET.
+// - Lars
  #ifdef LCD_I2C_PANELOLU2
-   #define FAN_PIN          4 // Uses Transistor1 (PWM) on Panelolu2's Sanguino Adapter Board to drive the fan
+   #define FAN_PIN          13 // Uses Transistor1 (PWM) on Panelolu2's Sanguino Adapter Board to drive the fan
  #endif
 
 #else
